@@ -9,12 +9,12 @@ import (
 )
 
 type Request struct {
-    Expression string json:"expression"
+    Expression string `json:"expression"`
 }
 
 type Response struct {
-    Result string json:"result,omitempty"
-    Error  string json:"error,omitempty"
+    Result string `json:"result,omitempty"`
+    Error  string `json:"error,omitempty"`
 }
 
 func Calc(expression string) (float64, error) {
@@ -156,13 +156,13 @@ func calculateHandler(w http.ResponseWriter, r *http.Request) {
     var req Request
 
     if err := json.NewDecoder(r.Body).Decode(&req); err != nil || req.Expression == "" {
-        http.Error(w, {"error": "Internal server error"}, http.StatusInternalServerError)
+        http.Error(w, `{"error": "Internal server error"}`, http.StatusInternalServerError)
         return
     }
 
     result, err := Calc(req.Expression)
     if err != nil {
-        http.Error(w, {"error": "Expression is not valid"}, http.StatusUnprocessableEntity)
+        http.Error(w, `{"error": "Expression is not valid"}`, http.StatusUnprocessableEntity)
         return
     }
 
