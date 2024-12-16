@@ -46,11 +46,11 @@ func TestCalculateHandler(t *testing.T) {
         result     string
         errMsg     string
     }{
-        {{"expression": "3 + 4 * 2"}, http.StatusOK, "11", ""},
-        {{"expression": "(1 + 2) * 3"}, http.StatusOK, "9", ""},
-        {{"expression": "10 / 0"}, http.StatusUnprocessableEntity, "", "Expression is not valid"},
-        {{"expression": "invalid_expression"}, http.StatusUnprocessableEntity, "", "Expression is not valid"},
-        {{}, http.StatusInternalServerError, "", ""},
+        {`{"expression": "3 + 4 * 2"}`, http.StatusOK, "11", ""},
+        {`{"expression": "(1 + 2) * 3"}`, http.StatusOK, "9", ""},
+        {`{"expression": "10 / 0"}`, http.StatusUnprocessableEntity, "", "Expression is not valid"},
+        {`{"expression": "invalid_expression"}`, http.StatusUnprocessableEntity, "", "Expression is not valid"},
+        {`{}`, http.StatusInternalServerError, "", ""},
     }
 
     for _, test := range tests {
