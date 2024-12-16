@@ -9,19 +9,13 @@
      
 *   Запуск проекта
      
-    Вы можете запустить проект с помощью следующей команды:
-     
-    
-        bash
+    Вы можете запустить проект с помощью следующей команды bash:
     
         go run ./cmd/calc_service/...
     
     **Примеры использования:**
      
-*   Успешный запрос:
-     
-    
-         bash
+*   Успешный запрос bash:
     
         curl --location 'localhost:8080/api/v1/calculate' \
     
@@ -32,15 +26,12 @@
     
     **Ответ:**
      
-    
         json {
          "result": "6"
         }
     
 *   Ошибка 422 (Неверное выражение):
-     
-    
-        bash
+
         curl --location 'localhost:8080/api/v1/calculate' \
         --header 'Content-Type: application/json' \
         --data '{
@@ -49,7 +40,6 @@
     
     **Ответ:**
      
-    
         json
         {
           "error": "Expression is not valid"
@@ -57,8 +47,6 @@
     
     *   Ошибка 500 (Внутренняя ошибка сервера) :
          
-        
-            bash
             curl --location 'localhost:8080/api/v1/calculate' \
             --header 'Content-Type: application/json' \
             --data '{
@@ -66,7 +54,6 @@
             }'
         
         **Ответ:**
-         
         
             json
             {
