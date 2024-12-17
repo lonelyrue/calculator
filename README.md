@@ -59,7 +59,7 @@
             {
               "error": "Internal server error"
             }
-        Так же в проекте есть дополнительный файл с тестами test.go:
+        Так же в проекте есть дополнительный файл с тестами test.go
         Его можно запустить с помощью команды:
 
-        ``` go run ./cmd/calc_service/main.go ```
+        ``` go run ./cmd/calc_service/test.go ```
